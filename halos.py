@@ -73,9 +73,9 @@ subhalos1 = get((url),{'limit': subhalos['count'], 'order_by':'-mass_dm'})
 
 
 
-c = [ subhalos1['results'][i]['id'] for i in range(subhalos['count']) ]
+#c = [ subhalos1['results'][i]['id'] for i in range(subhalos['count']) ]
 
-
+c = [ subhalos1['results'][i]['id'] for i in range(100) ]
 
 
 def running_sum(a):
