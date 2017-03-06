@@ -46,16 +46,13 @@ i = names.index('Illustris-2')
  
 sim = get( r['simulations'][i]['url'] )
  
-print sim['num_dm']
+
  
 # Get snapshot listing
 sim['snapshots']
 
 snaps = get( sim['snapshots'] )
 
-print len(snaps)
-
-print snaps[134]
 
 #### Get full meta data
 
@@ -96,7 +93,7 @@ print "printing total"
 print subhalos['count']
 
 
-c = [ subhalos['results'][i]['id'] for i in range(5) ]
+c = [ subhalos['results'][i]['id'] for i in range(1400) ]
 
 
 
@@ -124,7 +121,7 @@ while n < len(c):
 	id = c[n]
 
 	
-	print id
+	
 	url = "http://www.illustris-project.org/api/Illustris-2/snapshots/135/subhalos/" + str(id)
 	print url
 	
@@ -133,10 +130,10 @@ while n < len(c):
 	dmhalomass = sub['mass_dm']
 	total_mass = sub['mass']
 	mass_to_light = dmhalomass / total_mass
-	print mass_to_light
+	
 	parent = sub['parent']	
 	progenitor = sub['prog_sfid']	
-	print progenitor
+	
 	parents.insert(n,parent)
 	progenitors.insert(n,progenitor)
 	dmhalomasses.insert(n,dmhalomass)
@@ -157,7 +154,7 @@ while n < len(c):
 	pi = 3.14159265359
 	P_critical = 3 * H_squared / (8 * pi * G)
 	P_200 = P_critical * 200
-	print P_200
+	
 	# prepare dict to hold result arrays
 	fields = ['snap','id','mass_gas','mass','mass_dm','mass_bhs']
 	radialstarmass_density =([])
@@ -180,7 +177,7 @@ while n < len(c):
 		
 		rr2 = np.sqrt(dx**2 + dy**2 + dz**2)
 		rr2 *= scale_factor/little_h # ckpc/h -> physical kpc
-		print len(rr2)
+		
 		rrr2 = sorted(rr2)
 		darkmattermass_density = ([])
 		radial_distance2 = ([])
@@ -213,12 +210,12 @@ while n < len(c):
 		outer_radius2.pop(0)
 		
 		
-		print density
+		
 	for x in dark_mass_density:
 		if x > P_200:
 			dm_density.append(x)
 			
-	print "printing Hsquared"
+	
 	
 	total_dm_mass = list(running_sum(dark_matters))
 	del total_dm_mass[0]
@@ -242,9 +239,9 @@ while n < len(c):
 	filename15 = "totaldarkmatter.txt"
 	def format(value):
 		return "%.18f" % value
-	#del y1[0]
+	del y1[0]
 	y2 = [format(x) for x in y1]
-	#del r1[0]
+	del r1[0]
 	
 	def formats(values):
 		return "%.8f" % values	
