@@ -63,10 +63,6 @@ dm_masser = list(dm_masses)
 dm_masse = [val for sublist in dm_masser for val in sublist]
 dm_mass = [float(i) for i in dm_masse]
 
-
-
-
-
 #### PROGENITOR FILE
 
 
@@ -76,28 +72,12 @@ for y in progs.read().split('\n'):
 	if y.isdigit():
 		progenitor.append(int(y))
 
-
-
-
 #### Redshift File
 
-
-
-red = open( "redshift.txt")
-
-reds =  [elem.strip().split(';') for elem in red]
-
-redder = list(reds)
-redd = [val for sublist in redder for val in sublist]
-redshift = [float(i) for i in redd]
-
-
-
+redshift = 2.2204460492503099e-16	
 
 
 ##### Halo File
-
-
 
 halo_id = []
 halos = open('halo_id.txt','r')
@@ -117,11 +97,7 @@ y11 =[val for sublist in y111 for val in sublist]
 r11 = [val for sublist in r111 for val in sublist]
 
 list_dm = [val for sublist in listdm for val in sublist]
-pdf_pages = PdfPages('DMHalos135.pdf')
-
-
-
-
+pdf_pages = PdfPages('LowDHalos135.pdf')
 
 nm = 0
  
