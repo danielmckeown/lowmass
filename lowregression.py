@@ -257,12 +257,12 @@ pdf_pages.close()
 
 #####  Here we create our table 	
 import sqlite3
-conn = sqlite3.connect('darkmatter2.db')    #Here I will create a database of thousands of darkmatters
+conn = sqlite3.connect('darkmatterlow.db')    #Here I will create a database of thousands of darkmatters
 
 c = conn.cursor()   #my cursor
 
 # Create table
-c.execute('''CREATE TABLE D1low
+c.execute('''CREATE TABLE  darklow135
              (number int PRIMARY KEY, id int , n float, ner float, a float, aer float, r0 float, r0er float,dm_mass float, progenitor int, parent int,redshift float,chi_squared float, dm_mass_percent float)''')
 
 
@@ -277,7 +277,7 @@ print list_of_darkhalos
 for x in list_of_darkhalos:
 	
 	halo_string = ', '.join('?' * len(x))
-	query_string = 'INSERT INTO D1low VALUES (%s);' % halo_string
+	query_string = 'INSERT INTO darklow135 VALUES (%s);' % halo_string
 	c.execute(query_string, x)
 	
 	
