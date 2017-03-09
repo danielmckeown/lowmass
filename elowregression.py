@@ -190,8 +190,8 @@ while nm < g:
 		#r00 = (r/(r0*1000))**2
 	    
 	
-		return a * r**-n * (1.0 + r/r0)**(-3.0 + n)
-		#return a*np.exp(-(r/r0)**n)
+		#return a * r**-n * (1.0 + r/r0)**(-3.0 + n)
+		return a*np.exp(-(r/r0)**n)
 
 	param_bounds=([-np.inf,-np.inf,0],[np.inf,np.inf,2])
 		
